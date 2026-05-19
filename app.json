@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "XooloLing",
+    "slug": "xoololing-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1B5E20"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.xoololing.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "XooloLing needs camera access to take livestock photos.",
+        "NSLocationWhenInUseUsageDescription": "XooloLing needs your location to show nearby livestock markets."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1B5E20"
+      },
+      "package": "com.xoololing.app",
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "XooloLing needs photo access to upload livestock images."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "XooloLing needs your location to show nearby livestock markets."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#1B5E20"
+        }
+      ],
+      "expo-asset"
+    ],
+    "scheme": "xoololing",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "apiBaseUrl": "https://animalstock.vercel.app/api"
+    }
+  }
+}
