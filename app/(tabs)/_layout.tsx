@@ -1,8 +1,13 @@
 // ─── Tabs Layout ─────────────────────────────────────────────────────
 import React from 'react';
+import { Text } from 'react-native';
 import { Tabs } from 'expo-router';
 import { Colors, FontSizes } from '../../src/constants/theme';
 import i18n from '../../src/i18n';
+
+function TabIcon({ emoji }: { emoji: string }) {
+  return <Text style={{ fontSize: 22 }}>{emoji}</Text>;
+}
 
 export default function TabLayout() {
   return (
@@ -28,44 +33,37 @@ export default function TabLayout() {
         name="index"
         options={{
           title: i18n.t('home'),
-          tabBarIcon: ({ color }) => <TabIcon emoji="🏠" color={color} />,
+          tabBarIcon: ({ color }) => <TabIcon emoji="🏠" />,
         }}
       />
       <Tabs.Screen
         name="browse"
         options={{
           title: i18n.t('browse'),
-          tabBarIcon: ({ color }) => <TabIcon emoji="🔍" color={color} />,
+          tabBarIcon: ({ color }) => <TabIcon emoji="🔍" />,
         }}
       />
       <Tabs.Screen
         name="sell"
         options={{
           title: i18n.t('sell'),
-          tabBarIcon: ({ color }) => <TabIcon emoji="💰" color={color} />,
+          tabBarIcon: ({ color }) => <TabIcon emoji="💰" />,
         }}
       />
       <Tabs.Screen
         name="chat"
         options={{
           title: i18n.t('chat'),
-          tabBarIcon: ({ color }) => <TabIcon emoji="💬" color={color} />,
+          tabBarIcon: ({ color }) => <TabIcon emoji="💬" />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: i18n.t('profile'),
-          tabBarIcon: ({ color }) => <TabIcon emoji="👤" color={color} />,
+          tabBarIcon: ({ color }) => <TabIcon emoji="👤" />,
         }}
       />
     </Tabs>
   );
-}
-
-function TabIcon({ emoji, color }: { emoji: string; color: string }) {
-  // Using Text since we need simple emoji icons without extra dependencies
-  const React = require('react');
-  const { Text } = require('react-native');
-  return React.createElement(Text, { style: { fontSize: 22 } }, emoji);
 }
